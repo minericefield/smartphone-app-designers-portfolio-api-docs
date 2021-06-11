@@ -1,0 +1,12 @@
+{
+  "name": "vue-express-video-chat_docs",
+  "version": "0.1.0",
+  "description": "For swagger generating docs.",
+  "private": true,
+  "scripts": {
+    "generate": "openapi-generator-cli  generate -g typescript-axios -i ./openapi.yml -o ./"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.1.19"
+  }
+}

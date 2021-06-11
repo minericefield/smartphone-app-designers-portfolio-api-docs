@@ -1,0 +1,14 @@
+openapi: 3.0.0
+
+info:
+  title: Api Definitions
+  description: Only for Api
+  version: 0.1.0
+
+paths:
+  /api/example:
+    get:
+      summary: Example
+      responses:
+        '200':
+          description: succeed
