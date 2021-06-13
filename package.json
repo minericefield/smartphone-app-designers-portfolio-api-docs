@@ -8,9 +8,11 @@
     "generate:server": "openapi-generator-cli  generate -g typescript-node -i ./openapi.yml -o ./server"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.1.19"
+    "@openapitools/openapi-generator-cli": "^2.1.19",
+    "@types/node": "^15.12.2",
+    "request": "^2.88.2"
   },
   "$comment": [
-    "No main entry. Import types by /client or /server."
+    "No main entry. Import interfaces from /client or /server."
   ]
 }

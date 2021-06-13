@@ -6,9 +6,56 @@ info:
   version: 0.1.0
 
 paths:
-  /api/example:
+  /api/designs/{category}:
     get:
-      summary: Example
+      summary: Designs
+      parameters:
+        - in: path
+          name: category
+          schema:
+            type: integer
+            enum: [1, 2]
+          required: true
       responses:
         '200':
           description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  designs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Design'
+                required:
+                  - designs
+
+components:
+  schemas:
+    Design:
+      properties:
+        _id:
+          type: string
+        titleHeading:
+          type: string
+        title:
+          type: string
+        descriptionHeading:
+          type: string
+        description:
+          type: string
+        file:
+          type: string
+        category:
+          type: number
+        baseColor:
+          type: string
+      required:
+        - titleHeading
+        - title
+        - descriptionHeading
+        - description
+        - file
+        - category
+        - baseColor
