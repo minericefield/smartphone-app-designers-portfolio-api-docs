@@ -79,6 +79,55 @@ export interface Design {
 /**
  * 
  * @export
+ * @interface Designer
+ */
+export interface Designer {
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    _id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    email: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    descriptionHeading: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    description: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    file: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Designer
+     */
+    baseColor: string;
+}
+/**
+ * 
+ * @export
  * @interface InlineResponse200
  */
 export interface InlineResponse200 {
@@ -89,6 +138,19 @@ export interface InlineResponse200 {
      */
     designs: Array<Design>;
 }
+/**
+ * 
+ * @export
+ * @interface InlineResponse2001
+ */
+export interface InlineResponse2001 {
+    /**
+     * 
+     * @type {Designer}
+     * @memberof InlineResponse2001
+     */
+    designer: Designer;
+}
 
 /**
  * DefaultApi - axios parameter creator
@@ -96,6 +158,36 @@ export interface InlineResponse200 {
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @summary Designer
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiDesignerGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/designer`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @summary Designs
@@ -142,6 +234,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Designer
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiDesignerGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiDesignerGet(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @summary Designs
          * @param {1 | 2} category 
          * @param {*} [options] Override http request option.
@@ -163,6 +265,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
     return {
         /**
          * 
+         * @summary Designer
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiDesignerGet(options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.apiDesignerGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Designs
          * @param {1 | 2} category 
          * @param {*} [options] Override http request option.
@@ -181,6 +292,17 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
  * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI {
+    /**
+     * 
+     * @summary Designer
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public apiDesignerGet(options?: any) {
+        return DefaultApiFp(this.configuration).apiDesignerGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @summary Designs

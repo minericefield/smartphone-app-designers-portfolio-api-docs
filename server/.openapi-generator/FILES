@@ -4,5 +4,7 @@ api/apis.ts
 api/defaultApi.ts
 git_push.sh
 model/design.ts
+model/designer.ts
 model/inlineResponse200.ts
+model/inlineResponse2001.ts
 model/models.ts

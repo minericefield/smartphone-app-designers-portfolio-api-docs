@@ -1,7 +1,9 @@
 import localVarRequest from 'request';
 
 export * from './design';
+export * from './designer';
 export * from './inlineResponse200';
+export * from './inlineResponse2001';
 
 import * as fs from 'fs';
 
@@ -17,7 +19,9 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
 import { Design } from './design';
+import { Designer } from './designer';
 import { InlineResponse200 } from './inlineResponse200';
+import { InlineResponse2001 } from './inlineResponse2001';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -36,7 +40,9 @@ let enumsMap: {[index: string]: any} = {
 
 let typeMap: {[index: string]: any} = {
     "Design": Design,
+    "Designer": Designer,
     "InlineResponse200": InlineResponse200,
+    "InlineResponse2001": InlineResponse2001,
 }
 
 export class ObjectSerializer {

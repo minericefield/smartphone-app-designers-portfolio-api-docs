@@ -31,6 +31,22 @@ paths:
                 required:
                   - designs
 
+  /api/designer:
+    get:
+      summary: Designer
+      responses:
+        '200':
+          description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  designer:
+                    $ref: '#/components/schemas/Designer'
+                required:
+                  - designer
+
 components:
   schemas:
     Design:
@@ -58,4 +74,27 @@ components:
         - description
         - file
         - category
+        - baseColor
+    Designer:
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        descriptionHeading:
+          type: string
+        description:
+          type: string
+        file:
+          type: string
+        baseColor:
+          type: string
+      required:
+        - name
+        - email
+        - descriptionHeading
+        - description
+        - file
         - baseColor
