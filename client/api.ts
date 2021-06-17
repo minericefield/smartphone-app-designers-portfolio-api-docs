@@ -32,7 +32,7 @@ export interface Design {
      * @type {string}
      * @memberof Design
      */
-    _id?: string;
+    _id: string;
     /**
      * 
      * @type {string}
@@ -87,7 +87,7 @@ export interface Designer {
      * @type {string}
      * @memberof Designer
      */
-    _id?: string;
+    _id: string;
     /**
      * 
      * @type {string}

@@ -13,7 +13,7 @@
 import { RequestFile } from './models';
 
 export class Designer {
-    'id'?: string;
+    'id': string;
     'name': string;
     'email': string;
     'descriptionHeading': string;
