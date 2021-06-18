@@ -67,6 +67,8 @@ components:
           type: number
         baseColor:
           type: string
+        isPublic:
+          type: boolean
       required:
         - _id
         - titleHeading
@@ -76,6 +78,7 @@ components:
         - file
         - category
         - baseColor
+        - isPublic
     Designer:
       properties:
         _id:

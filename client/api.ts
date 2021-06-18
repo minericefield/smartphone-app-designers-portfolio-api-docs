@@ -75,6 +75,12 @@ export interface Design {
      * @memberof Design
      */
     baseColor: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Design
+     */
+    isPublic: boolean;
 }
 /**
  * 

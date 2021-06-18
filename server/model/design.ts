@@ -21,6 +21,7 @@ export class Design {
     'file': string;
     'category': number;
     'baseColor': string;
+    'isPublic': boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -64,6 +65,11 @@ export class Design {
             "name": "baseColor",
             "baseName": "baseColor",
             "type": "string"
+        },
+        {
+            "name": "isPublic",
+            "baseName": "isPublic",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
