@@ -87,7 +87,7 @@ components:
         baseColor:
           type: string
         isPublic:
-          type: boolean
+          type: number
       required:
         - _id
         - titleHeading

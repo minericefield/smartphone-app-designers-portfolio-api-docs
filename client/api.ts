@@ -77,10 +77,10 @@ export interface Design {
     baseColor: string;
     /**
      * 
-     * @type {boolean}
+     * @type {number}
      * @memberof Design
      */
-    isPublic: boolean;
+    isPublic: number;
 }
 /**
  * 

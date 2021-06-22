@@ -16,7 +16,7 @@ export namespace Schemas {
         file: string;
         category: number;
         baseColor: string;
-        isPublic: boolean;
+        isPublic: number;
     }
     export interface Designer {
         _id: string;
