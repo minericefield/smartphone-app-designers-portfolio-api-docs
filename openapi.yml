@@ -8,6 +8,7 @@ info:
 paths:
   /api/designs/{category}:
     get:
+      operationId: FetchDesigns
       summary: Designs
       parameters:
         - in: path
@@ -33,6 +34,7 @@ paths:
 
   /api/designer:
     get:
+      operationId: FetchDesigner
       summary: Designer
       responses:
         '200':
@@ -49,6 +51,7 @@ paths:
 
   /api/settings:
     get:
+      operationId: FetchSettings
       summary: Settings
       responses:
         '200':

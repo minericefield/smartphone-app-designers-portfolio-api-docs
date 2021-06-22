@@ -208,7 +208,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiDesignerGet: async (options: any = {}): Promise<RequestArgs> => {
+        fetchDesigner: async (options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/designer`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -239,9 +239,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiDesignsCategoryGet: async (category: 1 | 2, options: any = {}): Promise<RequestArgs> => {
+        fetchDesigns: async (category: 1 | 2, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'category' is not null or undefined
-            assertParamExists('apiDesignsCategoryGet', 'category', category)
+            assertParamExists('fetchDesigns', 'category', category)
             const localVarPath = `/api/designs/{category}`
                 .replace(`{${"category"}}`, encodeURIComponent(String(category)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -272,7 +272,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSettingsGet: async (options: any = {}): Promise<RequestArgs> => {
+        fetchSettings: async (options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/settings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -312,8 +312,8 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiDesignerGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiDesignerGet(options);
+        async fetchDesigner(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchDesigner(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -323,8 +323,8 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiDesignsCategoryGet(category: 1 | 2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiDesignsCategoryGet(category, options);
+        async fetchDesigns(category: 1 | 2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchDesigns(category, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -333,8 +333,8 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSettingsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiSettingsGet(options);
+        async fetchSettings(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchSettings(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -353,8 +353,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiDesignerGet(options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.apiDesignerGet(options).then((request) => request(axios, basePath));
+        fetchDesigner(options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.fetchDesigner(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -363,8 +363,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiDesignsCategoryGet(category: 1 | 2, options?: any): AxiosPromise<InlineResponse200> {
-            return localVarFp.apiDesignsCategoryGet(category, options).then((request) => request(axios, basePath));
+        fetchDesigns(category: 1 | 2, options?: any): AxiosPromise<InlineResponse200> {
+            return localVarFp.fetchDesigns(category, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -372,8 +372,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSettingsGet(options?: any): AxiosPromise<InlineResponse2002> {
-            return localVarFp.apiSettingsGet(options).then((request) => request(axios, basePath));
+        fetchSettings(options?: any): AxiosPromise<InlineResponse2002> {
+            return localVarFp.fetchSettings(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -392,8 +392,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public apiDesignerGet(options?: any) {
-        return DefaultApiFp(this.configuration).apiDesignerGet(options).then((request) => request(this.axios, this.basePath));
+    public fetchDesigner(options?: any) {
+        return DefaultApiFp(this.configuration).fetchDesigner(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -404,8 +404,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public apiDesignsCategoryGet(category: 1 | 2, options?: any) {
-        return DefaultApiFp(this.configuration).apiDesignsCategoryGet(category, options).then((request) => request(this.axios, this.basePath));
+    public fetchDesigns(category: 1 | 2, options?: any) {
+        return DefaultApiFp(this.configuration).fetchDesigns(category, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -415,8 +415,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public apiSettingsGet(options?: any) {
-        return DefaultApiFp(this.configuration).apiSettingsGet(options).then((request) => request(this.axios, this.basePath));
+    public fetchSettings(options?: any) {
+        return DefaultApiFp(this.configuration).fetchSettings(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
