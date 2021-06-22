@@ -4,6 +4,8 @@ export * from './design';
 export * from './designer';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
+export * from './inlineResponse2002';
+export * from './settings';
 
 import * as fs from 'fs';
 
@@ -22,6 +24,8 @@ import { Design } from './design';
 import { Designer } from './designer';
 import { InlineResponse200 } from './inlineResponse200';
 import { InlineResponse2001 } from './inlineResponse2001';
+import { InlineResponse2002 } from './inlineResponse2002';
+import { Settings } from './settings';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -43,6 +47,8 @@ let typeMap: {[index: string]: any} = {
     "Designer": Designer,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
+    "InlineResponse2002": InlineResponse2002,
+    "Settings": Settings,
 }
 
 export class ObjectSerializer {

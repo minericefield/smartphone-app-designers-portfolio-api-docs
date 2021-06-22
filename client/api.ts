@@ -157,6 +157,44 @@ export interface InlineResponse2001 {
      */
     designer: Designer;
 }
+/**
+ * 
+ * @export
+ * @interface InlineResponse2002
+ */
+export interface InlineResponse2002 {
+    /**
+     * 
+     * @type {Settings}
+     * @memberof InlineResponse2002
+     */
+    settings: Settings;
+}
+/**
+ * 
+ * @export
+ * @interface Settings
+ */
+export interface Settings {
+    /**
+     * 
+     * @type {string}
+     * @memberof Settings
+     */
+    _id: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Settings
+     */
+    isUnderMaintenance: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Settings
+     */
+    maintenanceMessage: string;
+}
 
 /**
  * DefaultApi - axios parameter creator
@@ -228,6 +266,36 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiSettingsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/settings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -259,6 +327,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiDesignsCategoryGet(category, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * 
+         * @summary Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiSettingsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiSettingsGet(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -287,6 +365,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         apiDesignsCategoryGet(category: 1 | 2, options?: any): AxiosPromise<InlineResponse200> {
             return localVarFp.apiDesignsCategoryGet(category, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiSettingsGet(options?: any): AxiosPromise<InlineResponse2002> {
+            return localVarFp.apiSettingsGet(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -319,6 +406,17 @@ export class DefaultApi extends BaseAPI {
      */
     public apiDesignsCategoryGet(category: 1 | 2, options?: any) {
         return DefaultApiFp(this.configuration).apiDesignsCategoryGet(category, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public apiSettingsGet(options?: any) {
+        return DefaultApiFp(this.configuration).apiSettingsGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

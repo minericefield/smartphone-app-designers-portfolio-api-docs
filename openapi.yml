@@ -47,6 +47,22 @@ paths:
                 required:
                   - designer
 
+  /api/settings:
+    get:
+      summary: Settings
+      responses:
+        '200':
+          description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  settings:
+                    $ref: '#/components/schemas/Settings'
+                required:
+                  - settings
+
 components:
   schemas:
     Design:
@@ -103,3 +119,15 @@ components:
         - description
         - file
         - baseColor
+    Settings:
+      properties:
+        _id:
+          type: string
+        isUnderMaintenance:
+          type: number
+        maintenanceMessage:
+          type: string
+      required:
+        - _id
+        - isUnderMaintenance
+        - maintenanceMessage
