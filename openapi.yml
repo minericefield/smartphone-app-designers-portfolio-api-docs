@@ -6,9 +6,131 @@ info:
   version: 0.1.0
 
 paths:
-  /api/example:
+  /api/designs/{category}:
     get:
-      summary: Example
+      operationId: FetchDesigns
+      summary: Designs
+      parameters:
+        - in: path
+          name: category
+          schema:
+            type: integer
+            enum: [1, 2]
+          required: true
       responses:
         '200':
           description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  designs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Design'
+                required:
+                  - designs
+
+  /api/designer:
+    get:
+      operationId: FetchDesigner
+      summary: Designer
+      responses:
+        '200':
+          description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  designer:
+                    $ref: '#/components/schemas/Designer'
+                required:
+                  - designer
+
+  /api/settings:
+    get:
+      operationId: FetchSettings
+      summary: Settings
+      responses:
+        '200':
+          description: succeed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  settings:
+                    $ref: '#/components/schemas/Settings'
+                required:
+                  - settings
+
+components:
+  schemas:
+    Design:
+      properties:
+        _id:
+          type: string
+        titleHeading:
+          type: string
+        title:
+          type: string
+        descriptionHeading:
+          type: string
+        description:
+          type: string
+        file:
+          type: string
+        category:
+          type: number
+        baseColor:
+          type: string
+        isPublic:
+          type: number
+      required:
+        - _id
+        - titleHeading
+        - title
+        - descriptionHeading
+        - description
+        - file
+        - category
+        - baseColor
+        - isPublic
+    Designer:
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        descriptionHeading:
+          type: string
+        description:
+          type: string
+        file:
+          type: string
+        baseColor:
+          type: string
+      required:
+        - _id
+        - name
+        - email
+        - descriptionHeading
+        - description
+        - file
+        - baseColor
+    Settings:
+      properties:
+        _id:
+          type: string
+        isUnderMaintenance:
+          type: number
+        maintenanceMessage:
+          type: string
+      required:
+        - _id
+        - isUnderMaintenance
+        - maintenanceMessage

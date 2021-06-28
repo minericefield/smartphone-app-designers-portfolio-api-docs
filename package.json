@@ -1,16 +1,19 @@
 {
   "name": "smartphone-app-designers-portfolio-api-docs",
   "version": "0.1.0",
-  "description": "For swagger generating docs.",
   "private": false,
   "scripts": {
     "generate:client": "openapi-generator-cli  generate -g typescript-axios -i ./openapi.yml -o ./client",
-    "generate:server": "openapi-generator-cli  generate -g typescript-node -i ./openapi.yml -o ./server"
+    "generate:server": "node generate-server"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.1.19"
+    "@himenon/openapi-typescript-code-generator": "^0.9.7",
+    "@openapitools/openapi-generator-cli": "^2.1.19",
+    "@types/node": "^15.12.2",
+    "request": "^2.88.2",
+    "typescript": "^4.3.4"
   },
   "$comment": [
-    "No main entry. Import types by /client or /server."
+    "No main entry. Import interfaces from /client or /server."
   ]
 }
