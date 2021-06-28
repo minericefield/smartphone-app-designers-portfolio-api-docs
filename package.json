@@ -1,7 +1,6 @@
 {
   "name": "smartphone-app-designers-portfolio-api-docs",
   "version": "0.1.0",
-  "description": "For swagger generating docs.",
   "private": false,
   "scripts": {
     "generate:client": "openapi-generator-cli  generate -g typescript-axios -i ./openapi.yml -o ./client",
